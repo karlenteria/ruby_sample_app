@@ -1,19 +1,18 @@
-database:
-  - name: postgres
-    databaseName: postgres
-    ipAllowList: []
+databases:
+  - name: mysite
+    databaseName: mysite
+    user: mysite
 
 services:
   - type: web
-    name: rails
-    env: ruby
+    name: mysite
+    runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
-      - key: RAILS_MASTER_KEY
-        sync: false
       - key: DATABASE_URL
         fromDatabase:
-          name: postgres
+          name: mysite
           property: connectionString
-    plan: free
+      - key: RAILS_MASTER_KEY
+        sync: false
