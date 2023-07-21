@@ -1,5 +1,6 @@
 databases:
   - name: postgres
+    ipAllowList: []
     databaseName: postgres
     user: postgres
     plan: free
