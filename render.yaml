@@ -1,14 +1,15 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
-
+  - name: postgres
+    databaseName: postgres
+    user: postgres
+    plan: free
 services:
   - type: web
-    name: mysite
+    name: rails
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
+    plan: free
     envVars:
       - key: DATABASE_URL
         fromDatabase:
