@@ -1,7 +1,7 @@
 database:
   - name: postgres
+    databaseName: postgres
     ipAllowList: []
-    plan: free
 
 services:
   - type: web
